@@ -71,10 +71,7 @@ ele_eta_cut = 2500
 ele12_DR_cut_max = 1000
 ele12_DR_cut_min = 0
 MLL_mass_cut = 6
-
-
-
-
+z0max = 1.0
 
 
 
@@ -157,7 +154,7 @@ for i in range(tree.GetEntries()):
 
         if not mll_pair.M() < MLL_mass_cut: continue
         # Find the best pair based on the smallest z0 difference
-        if abs(ele1.z0 - ele2.z0) < z0valuemin and abs(ele1.z0 - ele2.z0) < 1.0:
+        if abs(ele1.z0 - ele2.z0) < z0valuemin and abs(ele1.z0 - ele2.z0) < z0max:
             z0valuemin = abs(ele1.z0 - ele2.z0)
             bestpair = sorted([ele1, ele2], key=lambda x: x.pt, reverse=True)
             dielectron = mll_pair
